@@ -7,8 +7,25 @@
 </head>
 
 <body>
+    <header>
+        <h1>
+            <a href="/">SCS Tech Blog</a>
+        </h1>
+        <nav>
+            {{#if loggedIn}}
+            <button id="logout">logout</button>
+            {{else}}
+            <a href="/login">login</a>
+            {{/if}}
+        </nav>
+    </header>
+
     <main>
         {{{ body }}}
     </main>
+
+    <footer>
+        stay classic :^)
+    </footer>
 </body>
 </html>
