@@ -1,0 +1,8 @@
+<!-- list of blog posts -->
+<ul>
+    {{#each posts as |post|}} <!-- loop over each post -->
+    <li>
+        {{> home-post post}} <!-- use post partial -->
+    </li>
+    {{/each}}
+</ul>

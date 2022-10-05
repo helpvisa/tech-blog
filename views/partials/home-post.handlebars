@@ -1,4 +1,4 @@
-<!-- display data for a given post -->
+<!-- display data for a given post on home screen -->
 <article>
     <!-- post title -->
     <div>
@@ -9,11 +9,8 @@
     <div>
         <p>{{text}}</p>
     </div>
-    <!-- comments -->
+    <!-- post info -->
     <div>
-        <p>{{comments.length}} comments</p>
-        {{#each comments as |comment|}}
-            {{> comment comment}}
-        {{/each}}
+        <a href="/post/{{id}}">{{comments.length}} comments</a>
     </div>
 </article>
