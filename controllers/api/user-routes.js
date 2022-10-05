@@ -1,5 +1,6 @@
 // dependencies
 const router = require('express').Router();
+const auth = require('../../utils/auth');
 const {User} = require('../../models');
 
 // GET all users
@@ -105,7 +106,7 @@ router.post('/login', (req, res) => {
 });
 
 // logout route
-router.post('/logout', (req, res) => { // add auth check
+router.post('/logout', auth, (req, res) => { // add auth check
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
