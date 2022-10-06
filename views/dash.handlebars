@@ -8,14 +8,14 @@
 <section>
     <h3>Your Previous Posts</h3>
 
-    <ul>
+    <div>
         {{#each posts as |post|}}
-        <li>
+        <div>
             {{> dash-post post}}
             <a href="/dash/edit/{{post.id}}">EDIT POST</a>
-        </li>
+        </div>
         {{/each}}
-    </ul>
+    </div>
 </section>
 {{/if}}
 

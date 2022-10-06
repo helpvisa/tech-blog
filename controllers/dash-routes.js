@@ -45,5 +45,56 @@ router.get('/new', auth, (req, res) => {
     res.render('add-post', {loggedIn: req.session.loggedIn});
 });
 
+// edit post page
+router.get('/edit/:id', auth, (req, res) => {
+    // find the post in question
+    Post.findOne({
+        where: {
+            id: req.params.id,
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'title',
+            'text',
+            'created_at'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'text',
+                    'created_at'
+                ],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            }
+        ]
+    })
+    .then(data => {
+        if (!data) {
+            res.status(404).json({
+                message: "No post found with ID of " + req.params.id
+            });
+            return;
+        }
+        // serialize data
+        const post = data.get({plain: true});
+        // render post page
+        res.render('edit-post', {post, loggedIn: req.session.loggedIn});
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // export
 module.exports = router;

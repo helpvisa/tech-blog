@@ -7,21 +7,23 @@ async function handleNewPost(event) {
     const text = document.querySelector('#post-text').value;
 
     // pass into api POST call
-    const response = await fetch('/api/posts/', {
-        method: 'post',
-        body: JSON.stringify({
-            title,
-            text
-        }),
-        headers: {'Content-Type': 'application/json'}
-    });
+    if (title && text) {
+        const response = await fetch('/api/posts/', {
+            method: 'post',
+            body: JSON.stringify({
+                title,
+                text
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
 
-    // check response
-    if (response.ok) {
-        console.log(response);
-        document.location.replace('/dash'); // go back to dashboard
-    } else {
-        alert('Sorry, failed to create new post. Please try again in a moment.');
+        // check response
+        if (response.ok) {
+            console.log(response);
+            document.location.replace('/dash'); // go back to dashboard
+        } else {
+            alert('Sorry, failed to create new post. Please try again in a moment.');
+        }
     }
 }
 

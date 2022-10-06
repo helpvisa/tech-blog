@@ -44,7 +44,7 @@ router.get('/login', (req, res) => {
 });
 
 // single post route
-router.get('/post/:id', auth, (req, res) => {
+router.get('/post/:id', (req, res) => {
     // get single post data
     // get post data to render to homepage
     Post.findOne({
@@ -57,7 +57,6 @@ router.get('/post/:id', auth, (req, res) => {
             'text',
             'created_at'
         ],
-        order: [['created_at', 'DESC']],
         include: [
             {
                 model: User,

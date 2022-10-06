@@ -1,3 +1,35 @@
-<div>
-    {{> single-post post}}
-</div>
+<article>
+    <div>
+        {{> single-post post}}
+    </div>
+
+    <!-- comment count -->
+    <p>{{post.comments.length}} comments</p>
+    
+    <!-- add comment -->
+    {{#if loggedIn}}
+    <div>
+        <h4>add a comment</h4>
+        <div>
+            <textarea id="comment-box" name="comment-box"></textarea>
+            <button id="comment-button">submit</button>
+        </div>
+    </div>
+    {{else}}
+    <div>
+        <h4>
+            Please log in to add comments!
+        </h4>
+    </div>
+    {{/if}}
+    
+    <!-- comments -->
+    <div>
+        {{#each post.comments as |comment|}}
+            {{> comment comment}}
+        {{/each}}
+    </div>
+</article>
+
+<!-- load scripts -->
+<script src="/javascript/add-comment.js"></script>

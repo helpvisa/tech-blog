@@ -1,0 +1,31 @@
+<!-- display section allowing to delete/edit -->
+<section>
+    <div>
+        <h2><button id="edit-button">UPDATE POST</button></h2>
+    </div>
+    <div>
+        <h2><button id="delete-button">DELETE POST</button></h2>
+    </div>
+</section>
+
+<!-- display actual post, with comments -->
+<article>
+    <!-- editable post title -->
+    <div>
+        <input id="edit-title" name="edit-title" value="{{post.title}}" />
+    </div>
+    <!-- editable post text -->
+    <div>
+        <textarea id="edit-text" name="edit-text">{{post.text}}</textarea>
+    </div>
+    
+    <div>
+        <p>{{post.comments.length}} comments</p>
+        {{#each post.comments as |comment|}}
+            {{> comment comment}}
+        {{/each}}
+    </div>
+</article>
+
+<!-- load scripts -->
+<script src="/javascript/edit-post.js"></script>

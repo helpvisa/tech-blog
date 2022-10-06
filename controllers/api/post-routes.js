@@ -109,9 +109,56 @@ router.post('/', auth, (req, res) => {
     });
 });
 
-//
-// put and delete routes will go here
-//
+// DELETE a post
+router.delete('/:id', auth, (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(data => {
+        if (!data) {
+            res.status(404).json({
+                message: "Could not find post with ID of " + req.params.id
+            });
+            return;
+        }
+        res.json(data);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// PUT (update) a post
+router.put('/:id', auth, (req, res) => {
+    // expects title, text
+    Post.update(
+        {
+            title: req.body.title,
+            text: req.body.text
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(data => {
+        if (!data) {
+            res.status(404).json({
+                message: "Could not find post with ID of " + req.params.id
+            });
+            return;
+        }
+        res.json(data);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // export
 module.exports = router;

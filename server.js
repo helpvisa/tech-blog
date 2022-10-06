@@ -19,7 +19,9 @@ const hbs = exphbs.create({}); // create handlebars engine
 // setup session
 const sess = {
     secret: secret,
-    cookie: {},
+    cookie: {
+        maxAge: 30 * 60 * 1000 // session expires after 30 minutes
+    },
     resave: false,
     saveUnitialized: true,
     store: new SequelizeStore({
