@@ -1,6 +1,7 @@
 // dependencies
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+const auth = require('../utils/auth');
 const {Post, User, Comment} = require('../models');
 
 // homepage route
@@ -43,7 +44,7 @@ router.get('/login', (req, res) => {
 });
 
 // single post route
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', auth, (req, res) => {
     // get single post data
     // get post data to render to homepage
     Post.findOne({
@@ -78,9 +79,9 @@ router.get('/post/:id', (req, res) => {
     })
     .then(data => {
         // map posts and serialize
-        const post = data.get({plain: true});
+        const post = data.get({ plain: true });
         // render page and pass in posts
-        res.render('post', {post, loggedIn: req.session.loggedIn});
+        res.render('post', { post, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
         console.log(err);

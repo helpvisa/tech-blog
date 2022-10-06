@@ -1,0 +1,16 @@
+<!-- display data for a given post on dashboard -->
+<article>
+    <!-- post title -->
+    <div>
+        <a href="/post/{{id}}">{{title}}</a>
+        <p>posted by you on {{created_at}}</p>
+    </div>
+    <!-- post text -->
+    <div>
+        <p>{{text}}</p>
+    </div>
+    <!-- post info -->
+    <div>
+        <a href="/post/{{id}}">{{comments.length}} comments</a>
+    </div>
+</article>

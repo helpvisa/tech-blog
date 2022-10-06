@@ -12,8 +12,10 @@
             <a href="/">SCS Tech Blog</a>
         </h1>
         <nav>
+            <h3><a href="/">home</a></h3>
             {{#if loggedIn}}
             <button id="logout">logout</button>
+            <a href="/dash">dash</a>
             {{else}}
             <a href="/login">login</a>
             {{/if}}
@@ -24,9 +26,7 @@
         {{{ body }}}
     </main>
 
-    <footer>
-        stay classic :^)
-    </footer>
+    <footer></footer>
 
     <!-- script loading -->
     {{#if loggedIn}}

@@ -1,0 +1,23 @@
+<!-- dashboard layout -->
+<section>
+    <button id="create-post">CREATE NEW BLOG POST</button>
+</section>
+
+<!-- display users own posts -->
+{{#if posts.length}}
+<section>
+    <h3>Your Previous Posts</h3>
+
+    <ul>
+        {{#each posts as |post|}}
+        <li>
+            {{> dash-post post}}
+            <a href="/dash/edit/{{post.id}}">EDIT POST</a>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
+<!-- load scripts -->
+<script src="/javascript/dash.js"></script>
