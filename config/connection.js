@@ -5,8 +5,8 @@ const dotenv = require('dotenv').config();
 // environment variables
 let sequelize;
 
-if (process.env.JAWS_DB_URL) {
-    sequelize = new Sequelize(process.env.JAWS_DB_URL);
+if (process.env.JAWSDB_URL) {
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
     // environment variables
     const db = process.env.DB_NAME;
