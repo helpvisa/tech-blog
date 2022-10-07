@@ -31,7 +31,8 @@ Navigate to the root directory of the project in your commandline and type 'npm 
 ## Images
 
 
-![Preview of the home page running in a web browser.](./assets/images/preview.jpg)
+![Preview of the home page running in a web browser.](./assets/images/home_preview.jpg)
+![Preview of a post page running in a web browser.](./assets/images/post_preview.jpg)
 
 
 
