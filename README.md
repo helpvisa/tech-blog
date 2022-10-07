@@ -27,6 +27,8 @@ Navigate to the root directory of the project in your commandline and type 'npm 
 
 Navigate to the root directory of the project in your commandline and type 'npm start' in order to start your server. Make sure you've created a .env file using the included .env.example as a baseline.
 
+Live deployment available [here on Heroku.](https://helpvisa-scs-techblog.herokuapp.com/)
+
 
 ## Images
 
