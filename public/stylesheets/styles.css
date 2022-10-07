@@ -1,0 +1,4 @@
+/* set a maximum width of the viewport */
+.max-viewport-width {
+    max-width: 100vw;
+}

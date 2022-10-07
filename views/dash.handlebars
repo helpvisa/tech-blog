@@ -1,18 +1,18 @@
 <!-- dashboard layout -->
 <section>
-    <button id="create-post">CREATE NEW BLOG POST</button>
+    <button class="btn btn-secondary ml-2 mb-3" id="create-post">Create New Post</button>
 </section>
 
 <!-- display users own posts -->
 {{#if posts.length}}
 <section>
-    <h3>Your Previous Posts</h3>
+    <h2 class="font-italic m-2">Your Previous Posts</h2>
 
-    <div>
+    <div class="row d-flex flex-column">
         {{#each posts as |post|}}
-        <div>
+        <div class="col-12 m-4">
             {{> dash-post post}}
-            <a href="/dash/edit/{{post.id}}">EDIT POST</a>
+            <a class="btn btn-warning mt-2" href="/dash/edit/{{post.id}}">EDIT POST</a>
         </div>
         {{/each}}
     </div>

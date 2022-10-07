@@ -1,33 +1,39 @@
-<article>
-    <div>
-        {{> single-post post}}
+<article class="d-flex flex-column">
+    <div class="row d-flex flex-column">
+        <div class="col-12 m-4">
+            {{> single-post post}}
+        </div>
     </div>
 
     <!-- comment count -->
-    <p>{{post.comments.length}} comments</p>
+    <div class="m-4">
+        <p class="font-italic text-dark">{{post.comments.length}} {{formatPlural "comment" post.comments.length}}</p>
     
-    <!-- add comment -->
-    {{#if loggedIn}}
-    <div>
-        <h4>add a comment</h4>
+        <!-- add comment -->
+        {{#if loggedIn}}
         <div>
-            <textarea id="comment-box" name="comment-box"></textarea>
-            <button id="comment-button">submit</button>
+            <h4>add a comment</h4>
+            <div class="row d-flex flex-column">
+                <textarea class="col-md-6 col-12 input-group-text text-left" id="comment-box" name="comment-box"></textarea>
+                <button class="col-md-6 col-12 btn btn-secondary" id="comment-button">submit</button>
+            </div>
         </div>
+        {{else}}
+        <div>
+            <h4 class="text-danger">
+                Please log in to add comments!
+            </h4>
+        </div>
+        {{/if}}
     </div>
-    {{else}}
-    <div>
-        <h4>
-            Please log in to add comments!
-        </h4>
-    </div>
-    {{/if}}
     
     <!-- comments -->
-    <div>
-        {{#each post.comments as |comment|}}
+    <div class="row p-2 d-flex flex-column">
+        <div class="col-12">
+            {{#each post.comments as |comment|}}
             {{> comment comment}}
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
 </article>
 

@@ -1,7 +1,7 @@
 <!-- list of blog posts -->
-<div>
+<div class="row d-flex flex-column">
     {{#each posts as |post|}} <!-- loop over each post -->
-    <div>
+    <div class="col-12 m-4">
         {{> home-post post}} <!-- use post partial -->
     </div>
     {{/each}}

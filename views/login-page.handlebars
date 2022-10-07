@@ -1,34 +1,32 @@
 <!-- login form -->
-<form id="login">
-    <h1>LOGIN TO AN EXISTING ACCOUNT</h1>
-    <div>
-        <label for="username-login">user:</label>
-        <input type="text" id="username-login" />
-    </div>
-    <div>
-        <label for="password-login">pass:</label>
-        <input type="password" id="password-login" />
-    </div>
-    <div>
-        <button type="submit">login</button>
-    </div>
-</form>
+<div class="row m-2 d-flex flex-column">
+    <form class="col-12" id="login">
+        <h4>Login to an existing account:</h4>
+        <div class="form-group">
+            <label for="username-login">user :</label>
+            <input class="input-group-text text-left" type="text" id="username-login" />
 
-<!-- signup form -->
-<form id="signup">
-    <h1>SIGN UP FOR AN ACCOUNT</h1>
-    <div>
-        <label for="username-signup">user:</label>
-        <input type="text" id="username-signup" />
-    </div>
-    <div>
-        <label for="password-signup">pass:</label>
-        <input type="password" id="password-signup" />
-    </div>
-    <div>
-        <button type="submit">sign up</button>
-    </div>
-</form>
+            <label for="password-login">pass :</label>
+            <input class="input-group-text text-left" type="password" id="password-login" />
+
+            <button class="btn btn-dark mt-1" type="submit">login</button>
+        </div>
+    </form>
+
+    <!-- signup form -->
+    <form class="col-12" id="signup">
+        <h4>Sign up for a new account:</h4>
+        <div class="form-group">
+            <label for="username-signup">user :</label>
+            <input class="input-group-text text-left" type="text" id="username-signup" />
+
+            <label for="password-signup">pass :</label>
+            <input class="input-group-text text-left" type="password" id="password-signup" />
+
+            <button class="btn btn-dark mt-1" type="submit">sign up</button>
+        </div>
+    </form>
+</div>
 
 <!-- load our js scripts -->
 <script src="/javascript/login-page.js"></script>

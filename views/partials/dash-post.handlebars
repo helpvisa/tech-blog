@@ -2,15 +2,11 @@
 <article>
     <!-- post title -->
     <div>
-        <a href="/post/{{id}}">{{title}}</a>
-        <p>posted by you on {{created_at}}</p>
-    </div>
-    <!-- post text -->
-    <div>
-        <p>{{text}}</p>
+        <h3><a href="/post/{{id}}">{{title}}</a></h3>
+        <p>posted by <span class="font-italic">you</span> on <span class="font-weight-bold">{{formatDate created_at}}</span></p>
     </div>
     <!-- post info -->
     <div>
-        <a href="/post/{{id}}">{{comments.length}} comments</a>
+        <a href="/post/{{id}}">{{comments.length}} {{formatPlural "comment" comments.length}}</a>
     </div>
 </article>

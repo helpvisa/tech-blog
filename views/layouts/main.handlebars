@@ -4,20 +4,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCS Tech Blog</title>
+    <!-- bootstrap CDN -->
+    <link 
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+        crossorigin="anonymous"
+    >
+    <!-- custom styles -->
+    <link
+        rel="stylesheet"
+        href="/stylesheets/styles.css"
+    >
 </head>
 
-<body>
-    <header>
-        <h1>
+<body class="max-viewport-width">
+    <header class="jumbotron row p-1">
+        <h1 class="col-12 justify-content-start d-flex">
             <a href="/">SCS Tech Blog</a>
         </h1>
-        <nav>
-            <h3><a href="/">home</a></h3>
+        <nav class="col-12 justify-content-start d-flex flex-row p-2">
+            <a class="btn btn-primary m-2" href="/">home</a>
             {{#if loggedIn}}
-            <button id="logout">logout</button>
-            <a href="/dash">dash</a>
+            <a class="btn btn-info m-2" href="/dash">dash</a>
+            <button class="btn btn-danger m-2" id="logout">logout</button>
             {{else}}
-            <a href="/login">login</a>
+            <a class="btn btn-success m-2" href="/login">login</a>
             {{/if}}
         </nav>
     </header>

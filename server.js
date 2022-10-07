@@ -8,13 +8,15 @@ const routes = require('./controllers'); // import from index.js in controllers 
 const sequelize = require('./config/connection'); // import previously established connection
 const path = require('path');
 const session = require('express-session');
+// helper functions
+const helpers = require('./utils/helpers');
 
 // session storage in database with sequelize
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // handlebars template engine
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({}); // create handlebars engine
+const hbs = exphbs.create({helpers}); // create handlebars engine and import helpers
 
 // setup session
 const sess = {
