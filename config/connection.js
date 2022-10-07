@@ -28,6 +28,9 @@ if (process.env.RDS_HOSTNAME) {
 const sequelize = new Sequelize(db, user, pass, {
     host: host,
     dialect: 'mysql',
+    dialectOptions: {
+        ssl: 'Amazon RDS'
+    },
     port: port
 });
 
